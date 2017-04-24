@@ -1,0 +1,26 @@
+def creditLowest (balance, annualInterestRate):
+    m = 0 
+    highMP = balance
+    minimunMP = 0
+    step = 10
+    
+    guess = (minimunMP + highMP)/2.0
+    
+    for m in range (1,12):
+        
+        while abs(guess**2 - balance) >= step:
+            m += 1
+            
+            if guess**2 < balance:
+                minimunMP = guess
+            else:
+                highMP = guess
+            guess = (minimunMP + highMP)/2.0
+            balance -= guess
+            
+        print('Test case: ' + m)
+        print('Balance: ' + balance)
+        print('Annual Interest Rate: ' + minimunMP)
+            
+            
+creditLowest(3329,0.2)

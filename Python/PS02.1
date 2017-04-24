@@ -1,0 +1,33 @@
+def creditCard (balance, annualInterestRate, monthlyPaymentRate):
+    
+    updatedBalance = balance
+    finalPaid = 0
+    remaining = balance 
+    
+    for m in range (0, 12): 
+        
+        m +=1 
+        
+        monthlyInterestRate = annualInterestRate / 12.0
+        
+        minimunMonthlyPayment = monthlyPaymentRate * updatedBalance 
+        
+        unpaidBalance = updatedBalance - minimunMonthlyPayment
+        
+        updatedBalance = unpaidBalance + (monthlyInterestRate * unpaidBalance)
+        
+        
+        print 'Month: ' + str(m)
+        print 'Minimun monthly payment:' + str(round(minimunMonthlyPayment, 2))
+        print 'Remaining balance: ' + str(round(updatedBalance, 2))
+    
+
+        
+        finalPaid += minimunMonthlyPayment
+        
+        
+    print 'Total paid:' + str(round(finalPaid, 2))
+    print 'Remaining balance: ' + str(round(updatedBalance, 2))
+    
+    
+    
